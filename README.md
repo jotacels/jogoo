@@ -6,7 +6,8 @@ char nomeg[50];
 
 void invalido(){
     printf("Opçcao Invalida.\n");
-    while (getchar() != '\n');
+            while (getchar() != '\n')   
+            //função para facilitar nas digitaçoes de escolhas,ja que o usuario pode escolher algo alem das opçoes dadas.
 }
 
 void limparTela() {
@@ -15,6 +16,7 @@ void limparTela() {
     #else
         system("clear");
     #endif
+    //comando para que limpe a tela do usuario,para que continue sem causar muita poluição visual.
 }
 void continuartela() {
     printf("Pressione qualquer tecla para continuar\n");
@@ -23,6 +25,7 @@ void continuartela() {
     if (tecla) { 
         limparTela();
     }
+    //comando para que limpe a tela do usuario,para que continue sem causar muita poluição visual.
 }
 void InicioJogo() {
     char nomejogador[50];
@@ -32,6 +35,7 @@ void InicioJogo() {
     scanf("%s", nomeg); 
     printf("Bem vindo(a) %s, nessa história você irá seguir o caminho do(a) guerreiro(a) %s\n", nomejogador, nomeg); 
     continuartela();
+    //criei uma void de inicio so para separar o inicio do resto para que guarde melhor as informações do jogador e não bagunçar
 } 
 
 int main() {
@@ -53,18 +57,19 @@ int main() {
       scanf(" %c", &escolha);
       switch(escolha){
         case 'a':
-            printf("Você decide pagar o imposto e é permitido entrar na cidade.\n");
+            printf("printfVocê decide pagar o imposto e é permitido entrar na cidade.\n");
             break;
         case'b':
             printf("Você tenta passar sem pagar, mas é pego pelos guardas e precisa pagar uma multa.\n");
             printf("Após pagar a multa, você finalmente é permitido entrar na cidade.\n");
-             break;
+            break;
         case 'c':
              printf("Os guardas ficam com medo e te deixam passar.\n");
              break;
         default:
            invalido();
            break;
+           // em todas as vezes que tiver casos de escolhas,eu usei switch e case para que faça cade opçao do jogador individual,e nao cause bugs de continuar sem ele escolher algo errado.
         }
     
     }while(escolha != 'a' && escolha != 'b' && escolha != 'c');
@@ -105,5 +110,4 @@ int main() {
         printf("Opçcao invalida.\n");
     }
    
-   return 0;
-}
+   
